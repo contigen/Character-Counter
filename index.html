@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Character Counter</h1>
+      <textarea
+        id="text"
+        placeholder="Write something..."
+        spellcheck="false"
+      ></textarea>
+      <p>Character count:<span class="count">0</span></p>
+      <p>Character count excluding white spaces:<span class="space">0</span></p>
+    </div>
+    <script>
+      const textarea = document.querySelector(`#text`);
+      const count = document.querySelector(`.count`);
+      const space = document.querySelector(`.space`);
+      textarea.addEventListener(`input`, () => {
+        count.textContent = textarea.value.length;
+        let newInput = textarea.value.replace(/\s+/g, ``);
+        space.textContent = newInput.length;
+      });
+    </script>
+  </body>
+</html>
